@@ -27,7 +27,7 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public PageResult findPage(Brand brand, Integer page, Integer rows) {
-        //使用分页助手, 传入当前页和每页查询多少条数据1
+        //使用分页助手, 传入当前页和每页查询多少条数据11
         PageHelper.startPage(page, rows);
         //创建查询对象
         BrandQuery brandQuery = new BrandQuery();
