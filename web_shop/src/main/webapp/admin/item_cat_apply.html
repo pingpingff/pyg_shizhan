@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>商品分类管理</title>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+	<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+    
+    <!-- 引入angular的js -->
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+    
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../js/controller/baseController.js"></script>
+    <script type="text/javascript" src="../js/controller/itemCatController.js"></script>
+    <script type="text/javascript" src="../js/service/itemCatService.js"></script>
+
+
+    
+</head>
+
+<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="itemCatController" ng-init="findByParentId(0);selectItemCat1List();findOne()">
+  <!-- .box-body -->
+                
+                    <div class="box-header with-border" align="center">
+                        <h3 class="box-title" >商品分类申请表
+                       	</h3>
+                    </div>
+
+                    <div class="box-body">
+                  			<!-- <ol class="breadcrumb">
+                        		<li>
+		                        	<a href="#" ng-click="grade=1;selectList({id:0})">顶级分类列表</a> 
+		                        </li>
+		                        <li>
+		                       		<a href="#" ng-click="grade=2;selectList(entity_1)">{{entity_1.name}}</a>
+		                        </li>
+		                        <li>
+		                        	<a href="#" ng-click="grade=3;selectList(entity_2)">{{entity_2.name}}</a>
+		                        </li>
+	                        </ol>-->
+
+                        <!-- 数据表格 -->
+                        <div class="table-box">
+			                  <!--数据列表/-->
+							<div class="modal-body">
+
+								<table class="table table-bordered table-striped"  width="800px">
+									<tr>
+										<td>上级商品分类</td>
+                                        <td>
+                                            <select class="form-control" ng-model="entity.goods.category1Id" ng-options="item.id as item.name for item in itemCat1List">
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select class="form-control select-sm"  ng-model="entity.goods.category2Id" ng-options="item.id as item.name for item in itemCat2List"></select>
+                                        </td>
+                                        <td>
+                                            <select class="form-control select-sm" ng-model="entity.goods.category3Id" ng-options="item.id as item.name for item in itemCat3List" ng-controller="itemCatController"></select>
+                                        </td>
+
+									</tr>
+									<tr>
+										<td>商品分类名称</td>
+										<td><input ng-model="entity.name"  class="form-control" placeholder="商品分类名称">  </td>
+									</tr>
+									<tr>
+                                        <td>类型模板</td>
+										<td>
+											<input select2 config="options['type_template']" ng-model="entity.typeId" placeholder="商品类型模板" class="form-control" type="text"/>
+										</td>
+									</tr>
+								</table>
+                                <div class="modal fade"><input ng-model="entity.parentId"  class="form-control"></div>
+							</div>
+							<div align="center" >
+								<button class="btn btn-success" data-dismiss="modal" aria-hidden="true" ng-click="save()">申请</button>
+							</div>
+                        </div>
+                        <!-- 数据表格 /-->
+                        
+                     </div>
+                    <!-- /.box-body -->
+</body>
+</html>
