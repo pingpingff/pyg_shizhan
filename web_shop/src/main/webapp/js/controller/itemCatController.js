@@ -44,7 +44,8 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 				if(response.success){
 					//重新查询
                     alert(response.message);
-		        	$scope.reloadList();//重新加载
+                    $scope.reloadList();//重新加载
+                    $scope.entity={};
 				}else{
 					alert(response.message);
 				}

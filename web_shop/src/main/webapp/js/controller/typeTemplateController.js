@@ -51,6 +51,7 @@ app.controller('typeTemplateController' ,function($scope,$controller,brandServic
                     alert(response.message);
 					//重新查询 
 		        	$scope.reloadList();//重新加载
+                    $scope.entity={};
 				}else{
 					alert(response.message);
 				}

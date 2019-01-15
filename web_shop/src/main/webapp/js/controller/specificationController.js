@@ -45,6 +45,7 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 					//重新查询
                     alert(response.message);
 		        	$scope.reloadList();//重新加载
+                    $scope.entity={};
 				}else{
 					alert(response.message);
 				}

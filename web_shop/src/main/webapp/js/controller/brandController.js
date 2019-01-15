@@ -37,9 +37,8 @@ app.controller("brandController",function($scope,$controller,$http,brandService)
 			if(response.success==true){
 				// 保存成功
 				alert(response.message);
-                $scope.reloadList();
-                $scope.entity = [];
-
+                $scope.reloadList();//重新加载
+                $scope.entity={};
 			}else{
 				// 保存失败
 				alert(response.message);
