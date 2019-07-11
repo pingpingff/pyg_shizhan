@@ -20,6 +20,7 @@ public class AddressServiceImpl implements AddressService {
         AddressQuery.Criteria criteria = query.createCriteria();
         criteria.andUserIdEqualTo(userName);
         List<Address> addressList = addressDao.selectByExample(query);
+        System.out.println("123");
         return addressList;
     }
 }
